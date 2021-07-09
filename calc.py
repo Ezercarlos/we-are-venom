@@ -64,13 +64,13 @@ class Calculator:
 
 
     def create_display_labels(self):
-        total_label = tk.label(self.display_frame , text=self.total_expression , anchor=tk.E ,
+        total_label = tk.Label(self.display_frame , text=self.total_expression , anchor=tk.E ,
                                 bg=TEAL , fg=LABEL_COLOR , padx=24 , font=SMALL_FONT_STYLE)
-        total_label.pack(epand=True , fill="both")
+        total_label.pack(expand=True , fill="both")
 
-        label = tk.label(self.display_frame , text=self.current_expression , anchor=tk.E ,
+        label = tk.Label(self.display_frame , text=self.current_expression , anchor=tk.E ,
                                 bg=TEAL , fg=LABEL_COLOR , padx=24 , font=LARGE_FONT_STYLE)
-        label.pack(epand=True , fill="both")
+        label.pack(expand=True , fill="both")
 
         return total_label , label
 
@@ -87,7 +87,7 @@ class Calculator:
 
     def create_digit_buttons(self):
         for digit , grid_value in self.digits.items():
-            button = tk.Button(self.button_frame , text=str(digit) , bg=TEAL ,
+            button = tk.Button(self.buttons_frame , text=str(digit) , bg=TEAL ,
                                 fg=LABEL_COLOR , font=DIGIT_FONT_STYLE , borderwidth=0 ,
                                 command=lambda x=digit: self.add_to_expression(x))
             button.grid(row=grid_value[0] , column=grid_value[1] , sticky=tk.NSEW)
