@@ -1,7 +1,7 @@
 import unittest
 from calc import Calculator
 
-class TestCalculator(unittest.TestCase):
+class Test(unittest.TestCase):
     def test_contact(self):
 
         self.assertEqual()
