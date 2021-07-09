@@ -59,8 +59,9 @@ class Calculator:
     def create_special_buttons(self):
         self.create_clear_button()
         self.create_equals_button()
-        self.create_square_button()
         self.create_sqrt_button()
+
+        self.create_backspace_button()
 
 
     def create_display_labels(self):
@@ -118,7 +119,6 @@ class Calculator:
         self.update_label()
         self.update_total_label()
 
-
     def create_clear_button(self):
         button = tk.Button(self.buttons_frame , text="C" ,
                                 bg=GREEN_OFF , fg=LABEL_COLOR ,
@@ -127,17 +127,21 @@ class Calculator:
         button.grid(row=0 , column=1 , sticky=tk.NSEW)
 
 
-
-    def square (self):
-        self.current_expression = str(eval(f"{self.current_expression}**2"))
+    def backspace(self):
+        self.current_expression=self.current_expression[:-1]
+        if self.current_expression == "":
+            self.new_num = True
+            self.current_expression ="0"
         self.update_label()
-        
-    def create_square_button(self):
-        button = tk.Button(self.buttons_frame , text="x\u00b2" ,
+        self.update_total_label()
+
+    def create_backspace_button(self):
+        button = tk.Button(self.buttons_frame , text="Del" ,
                                 bg=GREEN_OFF , fg=LABEL_COLOR ,
                                 font=DEFAULT_FONT_STYLE , borderwidth=0 ,
-                                command=self.square)
+                                command=self.backspace)
         button.grid(row=0 , column=2 , sticky=tk.NSEW)
+
 
 
     def sqrt (self):
