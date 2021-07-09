@@ -12,7 +12,7 @@ GREEN_OFF = "#A2D9CE"
 LIGHT_BLUE = "#7FB3D5"
 
 class Calculator:
-    def __innit__(self):
+    def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("375x667")
         self.window.resizable(0,0)
@@ -196,7 +196,5 @@ class Calculator:
 
 
 if __name__=="__main__":
-    calc = Calculator
+    calc = Calculator()
     calc.run()    
-
-  
